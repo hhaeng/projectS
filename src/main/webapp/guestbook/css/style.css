@@ -1,0 +1,15 @@
+@charset "UTF-8";
+* { margin: 5px; padding: 0;}
+table {
+	width: 500px;
+	border: 1px solid gray;
+	border-collapse: collapse;
+	
+}
+th,td {
+	border: 1px solid gray;
+	text-align: center;
+	height: 30px;
+}
+a { text-decoration: none;} 
+#title { margin-top: 20px; margin-bottom: 20px;}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="guestbook">
+  
+  <select id="searchNameContent"  resultType="projectS.dto.GuestBookDTO">
+  	select * 
+  	from 
+  		guestbook
+	where 
+		name like #{search}  or content like #{search}  
+  </select>
+  <select id="searchList"  resultType="projectS.dto.GuestBookDTO" >
+  	select * 
+  	from 
+  		guestbook
+	where 
+		${searchkey} like #{search}
+  </select>
+  <select id="gbList" resultType="projectS.dto.GuestBookDTO">
+    select * from guestbook order by idx desc
+  </select>
+  
+  <select id="gbInsert" parameterType="projectS.dto.GuestBookDTO">
+  	insert into guestbook
+		(idx, name, email, passwd, content)
+  	values 
+		( guestbook_seq.nextval, #{name}, #{email},#{passwd}, #{content} )
+  </select>
+  
+  <select id="passwdCheck" parameterType="HashMap" resultType="int">
+  	select * from guestbook where idx = #{idx} and passwd =#{passwd}
+  </select>
+  
+  <select id="gbDetail"  resultType="projectS.dto.GuestBookDTO">
+  	select * from guestbook where idx = #{idx}
+  </select>
+  <select id="update"  parameterType="projectS.dto.GuestBookDTO">
+  	update guestbook 
+    set 
+        name=#{name}, email=#{email}, passwd=#{passwd}, content=#{content}
+    where idx = #{idx}
+  </select>
+  <select id="delete">
+  	delete from guestbook where idx = #{idx}
+  </select>
+  
+</mapper>

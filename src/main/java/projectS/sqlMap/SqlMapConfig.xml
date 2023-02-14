@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+<!--  알리아스 설정 : 클래스이름 경로가 긴 경우 별칭사용 -->
+<typeAliases></typeAliases> 
+
+ <!-- db연결 참조(커넥션 풀에서 설정된 이름) -->
+  <environments default="">
+    <environment id="">
+      <transactionManager type="JDBC"/>
+      <dataSource type="JNDI">
+        <property name="data_source" value="java:comp/env/myoracleDB"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <!-- sql관련 설정  -->
+  <mappers> 
+   	<mapper resource="projectS/mapper/guestbook.xml" />
+  </mappers>
+</configuration>

@@ -9,7 +9,7 @@
 request.setCharacterEncoding("utf-8");
 	// request객체 저장되어 있는 데이터를 메모리변수 저장	
 	// request객체 저장된 데이터는 요청과 응답 관계에서만 공유
-	List<MemberDTO> list = (List) request.getAttribute("memberList"); //listMember
+	List<MemberDTO> list = (List) request.getAttribute("memberList"); //listMember//
 	MemberDTO dto = new MemberDTO();
 	String path = (String) request.getAttribute("path");
 	
@@ -41,7 +41,8 @@ request.setCharacterEncoding("utf-8");
 			<%-- <div> <%= session_id %>현재 접속자: <%= count %></div> --%>
 			<div class="p-2 d-flex justify-content-start" >
 				<% if (session_id.equals("")) {%>
-					<a href="/projectS/member/login.html" class="btn btn-success btn-sm">로그인</a>
+					<!-- <a href="/projectS/member/login.html" class="btn btn-success btn-sm">로그인</a> -->
+					<a href="/projectS/member/login.jsp" class="btn btn-success btn-sm">로그인</a>
 				<%} else { %>
 					<a href=/projectS/member?command=logout" class="btn btn-success btn-sm">로그아웃</a>
 				<%} %>

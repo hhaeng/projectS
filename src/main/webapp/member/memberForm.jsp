@@ -29,10 +29,12 @@
 				<input type="text" class="form-control" name="id" id="id">
 			</div>
 			
+			<!-- 		
 			<div>
 				<a class="btn btn-success" id="idCheck" name="idCheck" onclick="fn_idCheck()" onkeydown="inputIdChk()">아이디 중복확인</a>
 				 <input type="hidden" name="idDuplication" value="idUncheck"/>
-			</div>
+			</div> 
+			-->
 			
 			<div class="mb-3">
 				<label for="password" class="form-label">비밀번호</label>

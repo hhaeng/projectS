@@ -7,7 +7,7 @@
 <title>방명록 수정</title>
 <link rel="stylesheet" href="css/style.css" />
 <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		console.log('jQuery Ok...');
 		
@@ -63,8 +63,7 @@
 	});
 	
 </script>
- -->
- </head>
+</head>
 <body>
 <h2>방명록 수정</h2>
 <hr>

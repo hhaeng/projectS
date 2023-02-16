@@ -187,18 +187,19 @@ public class MemberDAO {
 		return dto;
 
 	}
-
+//------------------------------------------T
 	// 아이디, 비밀번호 확인
-	public MemberDTO getID(String user_id, String user_pw) {
+	public MemberDTO getID(String user_id, String user_pwd) {
 
 		MemberDTO dto = new MemberDTO();
 		try {
 			Connection conn = ds.getConnection();
 			
-			String sql = "Select * from MemberList where id=? and pwd=?";
+			String sql = "Select * from MemberTest where id=? and pwd=?";
+	 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user_id);
-//			pstmt.setString(2, user_pw);
+			pstmt.setString(2, user_pwd);
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -213,8 +214,45 @@ public class MemberDAO {
 		}
 		return dto;
 	}
+	
+// 로그인-------------------------------ㅎㅇㅈㅂ
+	/*
+	public int login(MemberDTO dto) {
+		int result=-1;
+		
+		try {
+			String sql = "SELECT pwd"
+						+" From MemberList"
+						+" where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getId());
+			
+			rs = pstmt.executeQuery();
+			System.out.println(pstmt);
+			
+			if(rs.next()) { // 아이디 일치
+				if(dto.getPwd().equals(rs.getString("pwd"))) { // 비번일치
+					result = 1;
+				}else {		// 비번 불일치
+					result = 0;
+				}
+			}else {			// 아이디 불일치(존재X)
+				result = -1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			
+			try {if (rs != null) rs.close();} catch (Exception e2) {}
+			try {if (pstmt != null) pstmt.close();} catch (Exception e2) {}
+		}
+		return result;
+	}
+	*/
+	
 
-	//아이디 중복 확인
+//아이디 중복 확인----------------------ㄱㄱㄹ
 	public int idCheck(String id) { 
 		System.out.println("아디");
 		PreparedStatement pstmt = null;

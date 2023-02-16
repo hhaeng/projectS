@@ -4,9 +4,9 @@
 <%
 String mess = request.getParameter("mess");
 String login_result = "";
-if (mess.equals("id")) {	//
+if (mess.equals("user_id")) {	//
 	login_result = "아이디가 일치하지 않습니다.";
-} else if(mess.equals("pw")){ 	//
+} else if(mess.equals("user_pwd")){ 	//
 	login_result = "비밀번호가 일치하지 않습니다.";
 }
 else if(mess.equals("logout")){
@@ -30,12 +30,15 @@ else if(mess.equals("logout")){
 		<div class="alert alert-danger" role="alert">
 			<%=login_result%>
 		</div>
-		<div class="d-grid gap-2 d-md-block">
+		<div><!-- d-grid gap-2 d-md-block -->
 		<% if(mess.equals("logout")) { %>
-		  <a href="/projectS/member" class="btn btn-primary" type="button">목록 페이지 이동</a>
+		  <a href="/projectS/member" class="btn btn-success" type="button">목록</a>
 		<% } else { %>
-		  <a href="/projectS/member/login.html" class="btn btn-primary" type="button">로그인 페이지 이동</a>
+		  <a href="/projectS/member/login.jsp" class="btn btn-success" type="button">로그인 페이지 이동</a>
 		<% } %>
+		
+		<a href="/projectS/member" class="btn btn-success" type="button">목록</a>
+		
 		</div>
 	</div>
 </body>

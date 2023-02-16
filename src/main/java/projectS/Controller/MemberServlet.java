@@ -131,46 +131,31 @@ public class MemberServlet extends HttpServlet {
 			RequestDispatcher dispatch = request.getRequestDispatcher("/member/viewForm.jsp");
 			dispatch.forward(request, response);
 		
-		}else if (command != null && command.equals("/login")) {
+//로그인////////////////////////////////////////////////////////////
+		}else if (command != null && command.equals("login.do")) {
 			System.out.println("login 요청");
 			
 			// 클라이언트로 받은 id,pw
-			String user_id = request.getParameter("user_id");
-			String user_pw = request.getParameter("user_pw");
+			String user_id = request.getParameter("user_id");//user_id
+			String user_pwd = request.getParameter("user_pwd");//user_pw
 			// db확인
-			MemberDTO member = dao.getID(user_id, user_pw);
-			System.out.println(member.getId()+","+member.getPwd());
+			MemberDTO dto = dao.getID(user_id, user_pwd);
+			System.out.println("아이디: "+dto.getId()+", 비번: "+dto.getPwd());
 			
-			if(user_id.equals(member.getId())){
-				// 아이디 일치
-				if(user_pw.equals(member.getPwd())) {
-					//비번 일치
-					// 접속자 수 계산
-					/*
-					LoginImpl loginCount = new LoginImpl(user_id,user_pw);
-					
-					HttpSession session = request.getSession();
-					session.setAttribute("id", member.getId());
-					
-					System.out.println("접속자 수: "+ LoginImpl.total_user +","+loginCount);
-					response.sendRedirect("/projectS/member");
-					*/
-					System.out.println("아이디ㅇ,비번ㅇ");
-
-				}else{
-					// 아이디 일치, 비번 불일치
-					response.sendRedirect("/projectS/member/loginMess.jsp?mess=pw");
-					System.out.println("아이디ㅇ,비번ㄴ");
-
+			if(user_id.equals(dto.getId())){	// 아이디 일치
+				if(user_pwd.equals(dto.getPwd())) {	//비번 일치
+					System.out.println("아이디 일치, 비번 일치");
+				}else{	// 아이디 일치, 비번 불일치
+					response.sendRedirect("/projectS/member/loginMess.jsp?mess=user_pwd");
+					System.out.println("아이디 일치, 비번 불일치");
 				}
-			}else {
-				// 아이디가 없음
-				response.sendRedirect("/projectS/member/loginMess.jsp?mess=id");
-				System.out.println("아이디ㄴ");
+			}else {	// 아이디가 없음
+				response.sendRedirect("/projectS/member/loginMess.jsp?mess=user_id");
+				System.out.println("아이디 없음");
 
 			}
 			
-			
+//중복체크--------------------------------------------			
 		}else if (command != null && command.equals("idCheck")) {
 			System.out.println("아이디 중복 확인");
 			String id = request.getParameter("id");
@@ -188,7 +173,8 @@ public class MemberServlet extends HttpServlet {
 			session.invalidate(); //세션은 유효시간을 무효화(제거)
 			
 			response.sendRedirect("/projectS/member/loginMess.jsp?mess=logout");
-		
+//-----------------------------------------------
+			
 		} else {
 			
 		List<MemberDTO> list = dao.listMember();

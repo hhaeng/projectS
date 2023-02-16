@@ -10,7 +10,6 @@ import projectS.dto.GuestBookDTO;
 import projectS.sqlMap.MybatisManager;
 
 public class GuestBookDAO {
-
 	
 	
 	// 조건 검색

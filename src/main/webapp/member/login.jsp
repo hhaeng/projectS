@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +14,18 @@
 <body>
 	<div class="container">
 		
-		<!-- <form action="/projectS/member" method="post"> -->
-		 <form action="login.do" method="post">
+		<form action="/projectS/member?command=login.do" method="post">
 			<div class="mb-3">
-				<label for="id" class="form-label">아이디</label> 
-				<input type="text" class="form-control" name="user_id" id="user_id" >
+				<label for="user_id" class="form-label">아이디</label> 
+				<input type="text" class="form-control" name="user_id" id="user_id">
 			</div>
 			<div class="mb-3">
-				<label for="pw" class="form-label">비밀번호</label> 
-				<input type="password" class="form-control" name="user_pw" id="user_pw">
+				<label for="user_pwd" class="form-label">비밀번호</label> 
+				<input type="password" class="form-control" name="user_pwd" id="user_pwd">
 			</div>
 			
 			<!-- <input type="hidden" name="command" value="login"/> -->
-			<input type="submit" class="btn btn-success" value="로그인h"/>
+			<input type="submit" class="btn btn-success" name="command" value="로그인"/>
 			<button class="btn btn-success" onclick="history.back()">취소</button>
 			
 		</form>

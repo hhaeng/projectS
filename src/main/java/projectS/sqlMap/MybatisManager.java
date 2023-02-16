@@ -16,7 +16,7 @@ public class MybatisManager {
 	public static SqlSessionFactory getInstance() {
 		Reader reader = null;
 		if (reader == null) {
-			String resource = "sqlMap/SqlMapConfig.xml";
+			String resource = "/projectS/sqlMap/SqlMapConfig.xml";
 			try {
 				reader = Resources.getResourceAsReader(resource);
 				

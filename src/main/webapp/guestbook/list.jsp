@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 
 <%-- <%@ include file="../include/pagination_header.jsp" %> --%>
 <!DOCTYPE html>
@@ -7,6 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>방명록 리스트</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
 <style type="text/css">
 	* { margin: 5px; padding: 0;}
 	table {
@@ -28,10 +35,7 @@
 		margin-left: auto; margin-right: auto;
 		}
 </style>
-<!--
 <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script> 
- -->
-
 <script type="text/javascript">
 
 	$(function() {
@@ -72,7 +76,7 @@
 <h2>방명록 리스트</h2>
 <hr>
 <div id="search">
-	<form action="${path }/guestbook_servlet/search.do" method="post" name="search">
+	<form action="${contextPath }/guestbook_servlet/search.do" method="post" name="search">
 		<select name="searchkey" id="">
 			<c:choose>
 				<c:when test="${searchkey == 'name' }">
@@ -102,7 +106,7 @@
 	</form>
 </div>
 <div id="write">
-<input type="button" value="글쓰기" onclick='location.href="${path}/guestbook/write.jsp"'/><br>
+<input type="button" value="글쓰기" onclick='location.href="${contextPath}/guestbook/write.jsp"'/><br>
 ${list.size() }개의 글이 있습니다.
 </div>
 <div id="container">

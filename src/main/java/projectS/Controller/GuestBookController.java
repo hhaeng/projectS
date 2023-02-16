@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import projectS.dao.GuestBookDAO;
 import projectS.dto.GuestBookDTO;
 
-@WebServlet("/guestbook/*")
+@WebServlet("/guestbook_servlet/*")
 public class GuestBookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,6 +55,10 @@ public class GuestBookController extends HttpServlet {
 			dao.gbInsert(dto);
 			
 			response.sendRedirect(request.getContextPath()+"/guestbook_servlet/list.do");
+			
+			String page = "/guestbook/list.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(page);
+			rd.forward(request, response);
 			
 		} else if (url.contains("passwd_check.do")) {
 			int idx = Integer.parseInt(request.getParameter("idx"));
@@ -127,6 +131,9 @@ public class GuestBookController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		
+		String page = "/guestbook/list.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(page);
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

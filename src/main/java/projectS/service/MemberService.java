@@ -15,5 +15,14 @@ public class MemberService {
 	public List<MemberDTO> listMember(){
 		List<MemberDTO> list = memberDAO.listMember();
 		return list;
+	}
+		
+/*		
+	public int login(MemberDTO dto) {
+		int result = -1; // 아이디 없음
+		result = memberDAO.login(dto);
+
+		return result;
 	} 
+*/
 }

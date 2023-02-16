@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>방명록 작성</title>
 <link rel="stylesheet" href="css/style.css" />
-<script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script>
+<!-- <script type="text/javascript" src="../script/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(function() {
 		console.log('jQuery Ok...');
@@ -52,7 +56,7 @@
 <body>
 <h2>방명록 작성</h2>
 <hr>
-<form action="${pageContext.request.contextPath }/guestbook_servlet/insert.do"
+<form action="${contextPath}/guestbook_servlet/insert.do"
 		name="form1" id="form1" method="post">
 <table>
 	<tr>

@@ -2,7 +2,7 @@
 <Context>
 
     <Resource 
-    	name="myoracleDB" 
+    	name="jdbc/oracle" 
     	auth="Container"
         type="javax.sql.DataSource" 
         driverClassName="oracle.jdbc.OracleDriver"

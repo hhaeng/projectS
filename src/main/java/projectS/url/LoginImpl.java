@@ -18,26 +18,20 @@ import lombok.ToString;
 public class LoginImpl implements HttpSessionListener{
 	
 	String user_id;
-	String user_pw;
+	String user_pwd;
 	
 	public static int total_user =0;
 
-//	@Override
-//	public void sessionCreated(HttpSessionEvent se) {
-//		//세션에 저장시 수행: 접속자 수 증가
-//		System.out.println("사용자 접속");
-//		++total_user;		
-//	}
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
-		//세션이 소면 수행: 접속자 수 감소
+		//세션이 소멸시: 접속자 수 감소
 		System.out.println("사용자 접속 해지");
 		total_user--;
 	}
 
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
-		//세션에 저장시 수행: 접속자 수 증가
+		//세션에 저장시: 접속자 수 증가
 		System.out.println("사용자 접속하여 증가");
 		++total_user;		
 	}
